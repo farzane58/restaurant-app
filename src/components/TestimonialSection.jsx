@@ -1,0 +1,74 @@
+import { testimonials } from "../data/data";
+
+import {Star} from 'lucide-react'
+
+
+
+
+export default function TestimonialSection (){
+    return(
+        <section id="testimonials" className="px-auto mt-44">
+
+            <div className="text-center mb-14">
+                <p className="text-orange-500 font-medium uppercase mb-4">
+
+                    LOVED BY FOOD LOVERS
+
+
+                </p>
+                <h2 className="text-4xl md:text-5xl max-w-lg mx-auto text-balance">
+                    What Our Guests Say
+                </h2>
+
+
+
+
+            </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl ma-auto">
+
+
+                                {testimonials.map((item)=>(<div key={item.id} className="border border-slate-200 hover:bg-slate-50/50 rounded-2xl p-6
+                 flex flex-col justify-between text-left">
+                    
+            <div>
+
+                                            <div className="flex item-center gap-1 my-2">
+
+                         {[...Array(item.rating)].map((_,i)=>(<Star key={i} className='size-4 fill-orange-500 text-orange-500 '/>))}
+
+
+                                             </div>
+
+
+
+
+                    <p className="text-zinc-600 leadingh-relaxed mb-6">{item.review}</p>
+                    
+                    </div>
+                    <div className="flex items-center gap-3 mt-auto">
+                        <img src={item.avatar} alt={item.name} className="size-11 rounded-full object-cover shrink-0"/>
+                        
+                        <div>
+                            <p className="font-medium leading-tight mb-0.5">{item.name}</p>
+
+                            <p className="text-zinc-600">{item.location}</p>
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>))}
+
+
+           </div>
+           
+
+        </section>
+    )
+
+
+}
